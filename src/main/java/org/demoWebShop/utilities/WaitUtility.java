@@ -40,6 +40,13 @@ public enum LocatorType{
         else if (locatorType.equals(LocatorType.Name)){
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(target)));
         }
+        else{
+            try {
+                throw new Exception("Invalid Locator");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
     public void waitForElementToBeClickable(WebDriver driver,String target,Enum locatorType){
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
@@ -66,6 +73,13 @@ public enum LocatorType{
         }
         else if (locatorType.equals(LocatorType.Name)){
             wait.until(ExpectedConditions.elementToBeClickable(By.name(target)));
+        }
+        else{
+            try {
+                throw new Exception("Invalid Locator");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
     public void waitForElementToBeSelected(WebDriver driver,String target,Enum locatorType){
@@ -94,6 +108,13 @@ public enum LocatorType{
         else if (locatorType.equals(LocatorType.Name)){
             wait.until(ExpectedConditions.elementToBeSelected(By.name(target)));
         }
+        else{
+            try {
+                throw new Exception("Invalid Locator");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
     public void waitFrameToBeAvailableAndSwitchToIt(WebDriver driver,String target,Enum locatorType){
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
@@ -120,6 +141,13 @@ public enum LocatorType{
         }
         else if (locatorType.equals(LocatorType.Name)){
             wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name(target)));
+        }
+        else{
+            try {
+                throw new Exception("Invalid Locator");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

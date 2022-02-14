@@ -19,6 +19,9 @@ public class PageUtility {
     public void enterText(WebElement element, String value) {
         element.sendKeys(value);
     }
+    public String getPageTitle(WebDriver driver){
+       return driver.getTitle();
+    }
 
     public String getElementText(WebElement element) {
         return element.getText();
@@ -106,76 +109,73 @@ public class PageUtility {
         alert.dismiss();
     }
 
-    public void promptAlert(WebElement element,WebDriver driver, String value) {
-        element.click();
+    public void enterTextOnAlert(WebDriver driver, String value) {
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(value);
     }
-    public void confirmationAlert(WebElement element,WebDriver driver) {
-        element.click();
+    public void confirmationAlert(WebDriver driver) {
         Alert alert = driver.switchTo().alert();
     }
-    public String alertGetText(WebElement element,WebDriver driver) {
-        element.click();
+    public String getAlertText(WebDriver driver) {
         Alert alert=driver.switchTo().alert();
         return alert.getText();
     }
 
-    public void doubleClick(WebDriver driver,WebElement element) {
+    public void doubleClickOnElement(WebDriver driver,WebElement element) {
         Actions actions = new Actions(driver);
         actions.doubleClick(element).build().perform();
     }
-    public void rightClick(WebDriver driver,WebElement source) {
+    public void rightClickOnElement(WebDriver driver,WebElement source) {
         Actions actions = new Actions(driver);
         actions.contextClick(source).build().perform();
     }
-    public void dragAndDrop(WebDriver driver,WebElement source, WebElement target) {
+    public void dragAndDropOnTarget(WebDriver driver,WebElement source, WebElement target) {
         Actions actions = new Actions(driver);
         actions.dragAndDrop(source, target).build().perform();
     }
-    public void dragAndDropByOffest(WebDriver driver,WebElement source, int x, int y) {
+    public void dragAndDropToaPosition(WebDriver driver,WebElement source, int x, int y) {
         Actions actions = new Actions(driver);
         actions.dragAndDropBy(source, x, y).build().perform();
     }
-    public void moveToElement(WebDriver driver,WebElement source, int x, int y) {
+    public void moveToAnElement(WebDriver driver,WebElement source, int x, int y) {
         Actions actions = new Actions(driver);
         actions.moveToElement(source, x, y).build().perform();
     }
-    public void navigateTo(WebDriver driver,String url)
+    public void navigateToApplication(WebDriver driver,String url)
     {
         driver.navigate().to(url);
     }
-    public void navigateForward(WebDriver driver)
+    public void navigateForwardApplication(WebDriver driver)
     {
         driver.navigate().forward();
     }
-    public void navigateBack(WebDriver driver)
+    public void navigateBackApplication(WebDriver driver)
     {
         driver.navigate().back();
     }
-    public void navigateRefresh(WebDriver driver)
+    public void navigateRefreshApplication(WebDriver driver)
     {
         driver.navigate().refresh();
     }
-    public void frameByIndex(WebDriver driver, int i) {
+    public void switchToframeByIndex(WebDriver driver, int i) {
         Frame frame = new Frame();
         driver.switchTo().frame(i);
     }
 
-    public void frameByNameOrId(WebDriver driver, String value) {
+    public void switchToframeByNameOrId(WebDriver driver, String value) {
         Frame frame = new Frame();
         driver.switchTo().frame(value);
     }
 
-    public void frameByWebElement(WebDriver driver, WebElement element) {
+    public void switchToframeByWebElement(WebDriver driver, WebElement element) {
         Frame frame = new Frame();
         driver.switchTo().frame(element);
     }
-    public String windowHandlesToGetParent(WebDriver driver){
+    public String getWindowHandleId(WebDriver driver){
         return driver.getWindowHandle();
     }
 
-    public Set<String> windowHandlesToGetChild(WebDriver driver){
+    public Set<String> getWindowHandlesId(WebDriver driver){
         return driver.getWindowHandles();
     }
 

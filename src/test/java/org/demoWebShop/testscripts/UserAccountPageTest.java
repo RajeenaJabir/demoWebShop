@@ -1,4 +1,6 @@
 package org.demoWebShop.testscripts;
 
-public class UserAccountPageTest {
+import org.demoWebShop.automationCore.Base;
+
+public class UserAccountPageTest extends Base {
 }
