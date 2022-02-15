@@ -141,6 +141,12 @@ public class PageUtility {
         Actions actions = new Actions(driver);
         actions.moveToElement(source, x, y).build().perform();
     }
+
+    public void mouseHoverToAnElement(WebDriver driver, WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+    }
+
     public void navigateToApplication(WebDriver driver,String url)
     {
         driver.navigate().to(url);
