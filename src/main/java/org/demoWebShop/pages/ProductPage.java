@@ -17,16 +17,17 @@ public class ProductPage extends TestHelperUtility {
 
     /**Page elements**/
 
-    private final String _addToCartMenu=" // add-to-cart-button-14";
-    @FindBy(id =_addToCartMenu ) private WebElement addToCartMenu;
+    private final String _addToCartButton="add-to-cart-button-14";
+    @FindBy(id =_addToCartButton ) private WebElement addToCartButton;
 
-    private final String _shoppingCartCartMenu="//a[@class='ico-cart']//span[@class ='cart-label']";
-    @FindBy(id =_shoppingCartCartMenu ) private WebElement shoppingCartCartMenu;
+    private final String _shoppingCartCartMenu="ico-cart";
+    @FindBy(className =_shoppingCartCartMenu ) private WebElement shoppingCartCartMenu;
 
 
     /**User action methods**/
+
     public void clickOnShoppingCart(){
-        page.clickOnElement(addToCartMenu);
+        page.clickOnElement(addToCartButton);
     }
     public ShoppingCartPage clickOnShoppingCartMenu() {
         page.clickOnElement(shoppingCartCartMenu);

@@ -20,15 +20,18 @@ public class ShoppingCartTest extends Base {
 
     @Test(priority = 1)
     public void verifyProductAddedInShoppingCart() {
-        List<List<String>> data = excel.excelDataReader("jewelleryPage");
+        home = new HomePage(driver);
+        List<List<String>> data = excel.excelDataReader("JewelleryPage");
         String option = data.get(1).get(0);
         productList = home.clickOnProductMenu(option);
-        String value = data.get(2).get(1);
+        String value = data.get(1).get(1);
         productList.clickOnSortBy(value);
-        product = productList.clickOnblackdaimond();
+        String prdt=data.get(1).get(2);
+        product=productList.clickOnProduct(prdt);
         product.clickOnShoppingCart();
-        String actual = shoppingCart.getProductList();
-        String expected = "Black & White Diamond Heart";
-        Assert.assertEquals(actual, expected, "ERROR::Cart Missmatch");
+        shoppingCart=product.clickOnShoppingCartMenu();
+        String actualProductInCart = shoppingCart.getProductName();
+        String expectedProductInCart ="Black & White Diamond Heart";;
+        Assert.assertEquals(actualProductInCart, expectedProductInCart, "ERROR::Cart Missmatch");
     }
 }

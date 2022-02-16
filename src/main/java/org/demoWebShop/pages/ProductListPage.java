@@ -22,19 +22,24 @@ public class ProductListPage extends TestHelperUtility {
     @FindBy(id = _sortByOption) private List<WebElement> sortByOption;
 
     private final String _blackDaimond="//h2[@class='product-title']//a[@href='/black-white-diamond-heart']";
-    @FindBy(xpath =_blackDaimond ) private WebElement blackDaimond;
+    @FindBy(xpath =_blackDaimond ) private List<WebElement> blackDaimond;
 
     /**User action methods**/
-    public void clickOnSortBy(String value) {
+    public void clickOnSortBy(String text) {
         for (int i=0;i<sortByOption.size();i++) {
-            String val = sortByOption.get(i).getText();
-            if (val.equals(sortByOption)) {
-                page.selectDropDownByValue(sortByOption.get(i), value);
+            String value = sortByOption.get(i).getText();
+            if (value.equals(text)) {
+                page.selectDropDownByVisibleText(sortByOption.get(i),text);
             }
         }
     }
-    public ProductPage clickOnblackdaimond() {
-        page.clickOnElement(blackDaimond);
+    public ProductPage clickOnProduct(String prdt) {
+        for (int i=0;i<blackDaimond.size();i++) {
+            String value = blackDaimond.get(i).getText();
+            if (value.equals(prdt)) {
+                page.clickOnElement(blackDaimond.get(i));
+            }
+        }
         return new ProductPage(driver);
     }
 

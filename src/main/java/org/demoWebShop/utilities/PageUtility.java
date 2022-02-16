@@ -59,7 +59,7 @@ public class PageUtility {
         element.clear();
     }
 
-    public void selectDropDownByText(WebElement element, String value) {
+    public void selectDropDownByVisibleText(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByVisibleText(value);
     }

@@ -17,12 +17,12 @@ public class ShoppingCartPage extends TestHelperUtility {
 
     /**Page elements**/
 
-    private final String _product="//a[@class='product-name']";
-    @FindBy(id =_product ) private WebElement product;
+    private final String _product="//td[@class='product']//a[@class='product-name']";
+    @FindBy(xpath =_product ) private WebElement product;
 
     /**User action methods**/
 
-    public String getProductList() {
+    public String getProductName() {
         return  page.getElementText(product);
 
     }
