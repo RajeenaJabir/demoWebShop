@@ -63,8 +63,8 @@ public class Base {
     }
 
     @BeforeMethod
-    public void setUp() {
-        String browserName= prop.getProperty("browser");
+    @Parameters({"browser"})
+    public void setUp(String browserName) {
         String baseUrl= prop.getProperty("url");
         testInitlz(browserName,baseUrl);
     }

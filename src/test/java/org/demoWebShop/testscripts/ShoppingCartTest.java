@@ -31,7 +31,7 @@ public class ShoppingCartTest extends Base {
         product.clickOnShoppingCart();
         shoppingCart=product.clickOnShoppingCartMenu();
         String actualProductInCart = shoppingCart.getProductName();
-        String expectedProductInCart ="Black & White Diamond Heart";;
+        String expectedProductInCart ="Black & White Diamond Heart";
         Assert.assertEquals(actualProductInCart, expectedProductInCart, "ERROR::Cart Missmatch");
     }
 }
