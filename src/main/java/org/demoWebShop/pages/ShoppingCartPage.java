@@ -1,6 +1,7 @@
 package org.demoWebShop.pages;
 
 import org.demoWebShop.utilities.TestHelperUtility;
+import org.demoWebShop.utilities.WaitUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,14 +18,14 @@ public class ShoppingCartPage extends TestHelperUtility {
 
     /**Page elements**/
 
-    private final String _product="//td[@class='product']//a[@class='product-name']";
+    private final String _product="//td[@class='product']/a[@class='product-name']";
     @FindBy(xpath =_product ) private WebElement product;
+
 
     /**User action methods**/
 
-    public String getProductName() {
+    public String getProductName()  {
         return  page.getElementText(product);
-
     }
 
-}
+    }

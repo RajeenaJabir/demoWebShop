@@ -5,6 +5,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import sun.font.Script;
 
 import java.awt.*;
 import java.util.List;
@@ -90,7 +91,7 @@ public class PageUtility {
         Select select = new Select(element);
         return select.getOptions();
     }
-    public void selectDropDownByisMultiple(WebElement element) {
+    public void checkDropDownIsMultiple(WebElement element) {
         Select select = new Select(element);
         select.isMultiple();
     }
@@ -183,6 +184,25 @@ public class PageUtility {
 
     public Set<String> getWindowHandlesId(WebDriver driver){
         return driver.getWindowHandles();
+    }
+
+    public void javaScriptScroll(WebDriver driver,int x,long y) {
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+        js.executeScript("window.scrollBy(x,y)");
+    }
+
+    public void javaScriptClick(WebDriver driver, WebElement element) {
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();",element);
+    }
+    public void javaScriptGetAlert(WebDriver driver, String message) {
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+        js.executeScript("alert('"+ message +"')");
+    }
+
+    public void javaScriptSendKeys(WebDriver driver,String id,String values) {
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+        js.executeScript("document.getElementById('id').value='values'");
     }
 
 

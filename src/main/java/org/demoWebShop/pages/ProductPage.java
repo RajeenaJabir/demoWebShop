@@ -20,14 +20,15 @@ public class ProductPage extends TestHelperUtility {
     private final String _addToCartButton="add-to-cart-button-14";
     @FindBy(id =_addToCartButton ) private WebElement addToCartButton;
 
-    private final String _shoppingCartCartMenu="ico-cart";
-    @FindBy(className =_shoppingCartCartMenu ) private WebElement shoppingCartCartMenu;
+    private final String _shoppingCartCartMenu="//a[@class='ico-cart']";
+    @FindBy(xpath =_shoppingCartCartMenu ) private WebElement shoppingCartCartMenu;
 
 
     /**User action methods**/
 
     public void clickOnShoppingCart(){
         page.clickOnElement(addToCartButton);
+
     }
     public ShoppingCartPage clickOnShoppingCartMenu() {
         page.clickOnElement(shoppingCartCartMenu);

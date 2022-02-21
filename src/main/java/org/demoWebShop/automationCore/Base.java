@@ -3,6 +3,7 @@ package org.demoWebShop.automationCore;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.demoWebShop.constants.Constants;
+import org.demoWebShop.extentreport.ExtentManager;
 import org.demoWebShop.utilities.WaitUtility;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -10,10 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -60,6 +60,10 @@ public class Base {
         driver.manage().deleteAllCookies();
         driver.get(url);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(WaitUtility.PAGE_LOAD_WAIT));
+    }
+    @BeforeSuite
+    public void setExtent(final ITestContext testContext){
+        ExtentManager.createInstance().createTest(testContext.getName(), "TEST FAILED");
     }
 
     @BeforeMethod
